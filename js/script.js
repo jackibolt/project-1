@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
 Array of quotes
 ***/
 
-var quotes = [
+const quotes = [
   {
     Quote: 'Dear frozen yogurt, you are the celery of desserts. Be ice cream, or be nothing.',
     Source: 'Ron Swanson',
@@ -46,7 +46,7 @@ var quotes = [
 ***/
 
 function getRandomQuote(){
-  var randomNumber = Math.floor(Math.random() * quotes.length);
+  const randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
 }
 
@@ -59,10 +59,10 @@ function randomRGB() {
 }
 
 function randomBackground(){
-  var red = randomRGB();
-  var green = randomRGB();
-  var blue = randomRGB();
-  background = `rgb(` + red + `,` + green + `,` + blue + `)`;
+  const red = randomRGB();
+  const green = randomRGB();
+  const blue = randomRGB();
+  background = `rgb(${red}, ${green}, ${blue})`;
   document.body.style.backgroundColor = background;
 }
 
@@ -73,39 +73,31 @@ printQuote function to create the html for inside the #quote-box div
 ***/
 
 function printQuote() {
-  var quoteFunc = getRandomQuote();
-  var htmlString = '';
+  const quoteFunc = getRandomQuote();
+  let htmlString = '';
 
-  htmlString += `<p class="quote">`;
-  htmlString += quoteFunc.Quote;
-  htmlString += `</p><p class="source">`;
-  htmlString += quoteFunc.Source;
+  // quote and source 
+  htmlString += `<p class="quote">${quoteFunc.Quote}</p><p class="source">${quoteFunc.Source}`;
 
   // make sure a citation exists
   if (quoteFunc.Citation) {
-    htmlString += `<span class="citation">`;
-    htmlString += quoteFunc.Citation;
-    htmlString += `</span>`
+    htmlString += `<span class="citation">${quoteFunc.Citation}</span>`;
   } 
   
   // make sure a year exists
   if (quoteFunc.Year) {
-    htmlString += `<span class="year">`;
-    htmlString += quoteFunc.Year;
-    htmlString += `</span>`
+    htmlString += `<span class="year">${quoteFunc.Year}</span>`;
   }
   
   // make sure topic exists
   if (quoteFunc.Topic) {
-    htmlString += `<p class="topic">Topic: `;
-    htmlString += quoteFunc.Topic;
-    htmlString += `</p>`;
+    htmlString += `<p class="topic">Topic: ${quoteFunc.Topic}</p>`;
   }
 
   htmlString += `</p>`;
 
   // assign to #quote-box div
-  var quoteDiv = document.getElementById('quote-box');
+  const quoteDiv = document.getElementById('quote-box');
   quoteDiv.innerHTML = htmlString;
 
   randomBackground();
