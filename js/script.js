@@ -4,7 +4,7 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 
-/*** 
+/***
 Array of quotes
 ***/
 
@@ -76,19 +76,19 @@ function printQuote() {
   const quoteFunc = getRandomQuote();
   let htmlString = '';
 
-  // quote and source 
+  // quote and source
   htmlString += `<p class="quote">${quoteFunc.Quote}</p><p class="source">${quoteFunc.Source}`;
 
   // make sure a citation exists
   if (quoteFunc.Citation) {
     htmlString += `<span class="citation">${quoteFunc.Citation}</span>`;
-  } 
-  
+  }
+
   // make sure a year exists
   if (quoteFunc.Year) {
     htmlString += `<span class="year">${quoteFunc.Year}</span>`;
   }
-  
+
   // make sure topic exists
   if (quoteFunc.Topic) {
     htmlString += `<p class="topic">Topic: ${quoteFunc.Topic}</p>`;
@@ -105,4 +105,4 @@ function printQuote() {
 
 
 setInterval(printQuote, 25000);
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote);
